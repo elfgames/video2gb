@@ -1,3 +1,5 @@
 build_script:
-  - dir compiler\project
+  - dir compiler
+  - dir gbdk
+  - dir project
   - makefile.bat
