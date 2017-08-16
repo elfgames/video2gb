@@ -1,0 +1,8 @@
+.DS_Store
+*.mp4
+*.png
+/output
+/input
+*.gb
+*.o
+*.lst

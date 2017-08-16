@@ -1,0 +1,3 @@
+build_script:
+  - dir compiler\project
+  - makefile.bat

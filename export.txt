@@ -1,0 +1,1 @@
+ffmpeg -i video.mp4 -vf "fps=8" input/frame%04d.png
