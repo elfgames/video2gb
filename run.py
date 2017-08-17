@@ -69,7 +69,7 @@ def compressRLE(array):
 def generate_tilemap(img_text):
 	img_text = compressRLE(img_text)
 	s = ''.join(',0x%02x'%w for w in img_text)
-	s = re.sub(r",(0x[0-9A-Fa-f][0-9A-Fa-f])((,0x[0-9A-Fa-f][0-9A-Fa-f]){15})", r"\n.db \1\2", s)
+	s = re.sub(r",(0x[0-9A-Fa-f][0-9A-Fa-f])((,0x[0-9A-Fa-f][0-9A-Fa-f]){0,15})", r"\n.db \1\2", s)
 	s = re.sub(r"\.db ((0x[0-9A-Fa-f][0-9A-Fa-f],){15}0x[0-9A-Fa-f][0-9A-Fa-f]),((0x[0-9A-Fa-f][0-9A-Fa-f][,]*)+)", r".db \1\n.db \3", s)
 	#s = re.sub(r"", r".db \1\n.db \3", s)
 	return ".globl _frame"+str(im)+"\n.dw _frame"+str(im)+"\n\n_frame"+str(im)+":\n"+s+"\n\n"
@@ -97,7 +97,7 @@ for im in range(len(images)):
 	pos1 = images[im]
 	img_text = []
 	temp1 = cv2.imread(input_folder + pos1, cv2.CV_LOAD_IMAGE_GRAYSCALE)
-	_,temp1 = cv2.threshold(temp1,127,255,cv2.THRESH_BINARY)
+	_,temp1 = cv2.threshold(temp1,127,255,cv2.THRESH_TOZERO)
 	# L'immagine e' 20x18 tile da 8 pixel (160x144px)
 	for j in range(0, 18):
 		for i in range(0, 20):
