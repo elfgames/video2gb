@@ -50,7 +50,7 @@ while pos < num_frames:
   j += 1
 
 j = start_bank
-s = "unsigned long use_frame_bank(unsigned char frame) {\n"
+s = "unsigned char use_frame_bank(unsigned long frame) {\n"
 s += "\tswitch(frame)\n\t{\n"
 for l in limits:
   s+="\t\tcase "+str(l)+": return "+str(j)+";\n"
