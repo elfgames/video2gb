@@ -1,8 +1,6 @@
 build_script:
-  - cd compiler
-  - cd gbdk
   - cd project
   - makefile.bat
 artifacts:
-  - path: 'compiler\gbdk\project\*.gb'
+  - path: 'project\*.gb'
     name: Gameboy Build
