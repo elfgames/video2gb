@@ -82,8 +82,8 @@ def generate_tilemap(img_text):
 #exit()
 
 tileset = [0, 0xFFFFFFFFFFFFFFFF]
-tileset_bucket = [np.zeros((8,8), np.uint8)]*256
-tileset_bucket[1] = np.ones((8,8), np.uint8) * 255
+tileset_bucket = [np.zeros((8,8), np.uint32)]*256
+tileset_bucket[1] = np.ones((8,8), np.uint32) * 255
 
 tileset_weights = [1.0]*256
 blank_image = np.zeros((128,128), np.uint8)
@@ -126,8 +126,8 @@ for im in range(len(images)):
 				# 	lx = 0
 				# 	ly += 8
 			# Quando un certo tile del tileset viene scelto, aumento il conteggio degli utilizzi di un certo tile
-			tileset_weights[index]+=1
-			# tileset_bucket[index] = tileset_bucket[index] + crop_img#.astype(np.uint32, copy=False)
+			# tileset_weights[index]+=1
+			# tileset_bucket[index] = tileset_bucket[index] + crop_img
 			img_text.append(index)
 	gbdk_frameset_file += generate_tilemap(img_text)
 	image_frames_list.append(img_text)
@@ -150,14 +150,16 @@ for tile in tileset_bucket:
 	_med = _max - _min
 	if _med == 0:
 		_med = 1
-	tile = (tile - _min)
-	tile = tile.astype(np.float32, copy=False)
-	tile = (tile / (_med))*255
-	tile = tile.astype(np.uint8, copy=False)
-	result.append(tile)
+		result.append(tile)
+	else:
+		tile = (tile - _min)
+		tile = tile.astype(np.float32, copy=False)
+		tile = (tile / (_med))*255
+		tile = tile.astype(np.uint8, copy=False)
+		result.append(tile)
 
-result[0] = np.zeros((8,8), np.uint8)
-result[1] = np.ones((8,8), np.uint8) * 255
+# result[0] = np.zeros((8,8), np.uint8)
+# result[1] = np.ones((8,8), np.uint8) * 255
 
 out_file = open("./output/bg.s","w")
 out_file.write(gbdk_frameset_file)
