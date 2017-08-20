@@ -17,7 +17,7 @@
 ..\gbdk\bin\lcc -Wa-l -c -o rle_lib.o gbdk-lib-extension/rle_lib.c
 ..\gbdk\bin\lcc -Wa-l -c -o main.o main.c
 
-..\gbdk\bin\lcc -Wl-yt3 -Wl-yo32 -Wl-ya4 -o video.gb indexes.o main.o saveslot1.o rle_lib.o bg.o frames1.o frames2.o frames3.o frames4.o frames5.o frames6.o frames7.o frames8.o frames9.o frames10.o frames11.o frames12.o frames13.o
+..\gbdk\bin\lcc -Wl-yt3 -Wl-yo32 -Wl-ya4 -o video.gb indexes.o main.o saveslot1.o rle_lib.o bg.o frames1.o frames2.o frames3.o frames4.o frames5.o frames6.o frames7.o frames8.o frames9.o frames10.o frames11.o frames12.o frames13.o frames14.o frames15.o frames16.o frames17.o frames18.o frames19.o frames20.o
 
 del *.o
 del *.lst
