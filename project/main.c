@@ -99,18 +99,14 @@ void main() {
 
 		++i;
 
-		b = use_frame_bank(i);
-		printf("Hi %u %lu", i, b);
+		use_frame_bank(i, &b);
 
-		// b = use_frame_bank(i);
-
-		// wait_vbl_done();
-		// SWITCH_ROM_MBC1(30);
-		// actual_frame = frames[i];
-		// SWITCH_ROM_MBC1(b);
-		// set_bkg_tiles_rle(actual_frame);
+		SWITCH_ROM_MBC1(30);
+		actual_frame = frames[i];
+		SWITCH_ROM_MBC1(b);
+		set_bkg_tiles_rle(actual_frame);
 		wait_vbl_done();
-		// set_bkg_tiles(0, 0, 20, 18, &buffer[0]);
+		set_bkg_tiles(0, 0, 20, 18, &buffer[0]);
 	}
 	DISPLAY_OFF;
 	disable_interrupts();
