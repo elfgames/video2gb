@@ -10,5 +10,3 @@ void init_graphics();
 #include "background/bg.h"
 #include "background/frames.h"
 #include "frame_banks.h"
-
-
