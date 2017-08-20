@@ -50,15 +50,16 @@ while pos < num_frames:
   j += 1
 
 j = start_bank
-s = "unsigned char use_frame_bank(unsigned long frame) {\n"
+s = '#include "frame_banks.h"'
+s += "\n\nvoid use_frame_bank(UINT16 frame, unsigned char * b) NONBANKED {\n"
 s += "\tswitch(frame)\n\t{\n"
 for l in limits:
-  s+="\t\tcase "+str(l)+": return "+str(j)+";\n"
+  s+="\t\tcase "+str(l)+": *b = "+str(j)+"; break;\n"
   j+=1
-s+="\t\tdefault: return 1;\n\t}\n"
+s+="\t\tdefault: break;\n\t}\n"
 s+="}\n"
 
-out_file = open(os.path.join("project", "frame_banks.h"), "w")
+out_file = open(os.path.join("project", "frame_banks.c"), "w")
 out_file.write(s)
 out_file.close()
 
