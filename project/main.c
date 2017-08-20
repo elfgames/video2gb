@@ -93,10 +93,13 @@ void main() {
 		if (keys & J_DOWN)
 			continue;
 
-		if (i == 2189)
+		if (i == 2189) {
 			break;
+		}
 
-		b = use_frame_bank(++i);
+		++i;
+
+		b = use_frame_bank(i);
 
 		wait_vbl_done();
 		SWITCH_ROM_MBC1(30);

@@ -1,4 +1,4 @@
-unsigned char use_frame_bank(unsigned long frame) {
+unsigned char use_frame_bank(unsigned long frame) NONBANKED {
     switch(frame)
     {
         case 114: return 3;
