@@ -15,9 +15,10 @@
 ..\gbdk\bin\lcc -Wa-l -Wf-bo14 -c -o frames13.o background/frames13.s
 ..\gbdk\bin\lcc -Wa-l -Wf-bo30 -c -o indexes.o background/indexes.s
 ..\gbdk\bin\lcc -Wa-l -c -o rle_lib.o gbdk-lib-extension/rle_lib.c
+..\gbdk\bin\lcc -Wa-l -c -o frame_banks.o frame_banks.c
 ..\gbdk\bin\lcc -Wa-l -c -o main.o main.c
 
-..\gbdk\bin\lcc -Wl-yt3 -Wl-yo32 -Wl-ya4 -o video.gb indexes.o main.o saveslot1.o rle_lib.o bg.o frames1.o frames2.o frames3.o frames4.o frames5.o frames6.o frames7.o frames8.o frames9.o frames10.o frames11.o frames12.o frames13.o
+..\gbdk\bin\lcc -Wl-yt3 -Wl-yo32 -Wl-ya4 -o video.gb indexes.o main.o saveslot1.o rle_lib.o frame_banks.o bg.o frames1.o frames2.o frames3.o frames4.o frames5.o frames6.o frames7.o frames8.o frames9.o frames10.o frames11.o frames12.o frames13.o
 
 del *.o
 del *.lst

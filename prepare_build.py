@@ -96,13 +96,14 @@ def build_makefile(n):
   s1 += "..\\gbdk\\bin\\lcc -Wa-l -Wf-ba0 -c -o saveslot1.o saves/saveslot1.c\n"
   s1 += "..\\gbdk\\bin\\lcc -Wa-l -Wf-bo1 -c -o bg.o background/bg.s\n"
   
-  s2 += "..\\gbdk\\bin\\lcc -Wl-yt3 -Wl-yo32 -Wl-ya4 -o video.gb indexes.o main.o saveslot1.o rle_lib.o bg.o"
+  s2 += "..\\gbdk\\bin\\lcc -Wl-yt3 -Wl-yo32 -Wl-ya4 -o video.gb indexes.o main.o saveslot1.o rle_lib.o frame_banks.o bg.o"
   for i in range(len(n)):
     s1 += "..\\gbdk\\bin\\lcc -Wa-l -Wf-bo"+str(i+2)+" -c -o frames"+str(i+1)+".o background/frames"+str(i+1)+".s\n"
     s2 += " frames"+str(i+1)+".o"
 
   s1 += "..\\gbdk\\bin\\lcc -Wa-l -Wf-bo30 -c -o indexes.o background/indexes.s\n"
   s1 += "..\\gbdk\\bin\\lcc -Wa-l -c -o rle_lib.o gbdk-lib-extension/rle_lib.c\n"
+  s1 += "..\\gbdk\\bin\\lcc -Wa-l -c -o frame_banks.o frame_banks.c\n"
   s1 += "..\\gbdk\\bin\\lcc -Wa-l -c -o main.o main.c"
   s2 += "\n\ndel *.o\ndel *.lst\n\n"
   return s1 + "\n\n" + s2
