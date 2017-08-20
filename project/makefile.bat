@@ -13,6 +13,13 @@
 ..\gbdk\bin\lcc -Wa-l -Wf-bo12 -c -o frames11.o background/frames11.s
 ..\gbdk\bin\lcc -Wa-l -Wf-bo13 -c -o frames12.o background/frames12.s
 ..\gbdk\bin\lcc -Wa-l -Wf-bo14 -c -o frames13.o background/frames13.s
+..\gbdk\bin\lcc -Wa-l -Wf-bo14 -c -o frames14.o background/frames14.s
+..\gbdk\bin\lcc -Wa-l -Wf-bo14 -c -o frames15.o background/frames15.s
+..\gbdk\bin\lcc -Wa-l -Wf-bo14 -c -o frames16.o background/frames16.s
+..\gbdk\bin\lcc -Wa-l -Wf-bo14 -c -o frames17.o background/frames17.s
+..\gbdk\bin\lcc -Wa-l -Wf-bo14 -c -o frames18.o background/frames18.s
+..\gbdk\bin\lcc -Wa-l -Wf-bo14 -c -o frames19.o background/frames19.s
+..\gbdk\bin\lcc -Wa-l -Wf-bo14 -c -o frames20.o background/frames20.s
 ..\gbdk\bin\lcc -Wa-l -Wf-bo30 -c -o indexes.o background/indexes.s
 ..\gbdk\bin\lcc -Wa-l -c -o rle_lib.o gbdk-lib-extension/rle_lib.c
 ..\gbdk\bin\lcc -Wa-l -c -o main.o main.c
